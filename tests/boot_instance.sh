@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Get credentials
+. ~/.openstackrc
+
 # Build our instance
 /usr/bin/nova boot --flavor m1.small --image CentOS-7.1-x86_64-GenericCloud-1503 --user-data user_data.txt $BUILD_TAG
 
