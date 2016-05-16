@@ -5,7 +5,7 @@
 
 # Find a floating IP for our app.
 # Either reuse the one we have or get a free one.
-for SERVER in `/usr/bin/nova list | grep jenkins-${JOB_NAME} | awk '{print $2}'`;
+for SERVER in `/usr/bin/nova list | grep jenkins-${JOB_NAME} | awk '{print $2}'`
 do
   IP=`/usr/bin/nova floating-ip-list | grep $SERVER | awk '{print $4}'`
   if [ ${IP} ]
@@ -33,5 +33,6 @@ fi
 if [ $FLOATING_IP ]
 then
   /usr/bin/nova floating-ip-associate $BUILD_TAG $FLOATING_IP
+  echo "App is available at $FLOATING_IP"
 fi
 
