@@ -2,7 +2,7 @@
 
 packages:
   - httpd
+  - php
 
 runcmd:
-  - 'echo "<h1>chicken</h1>" > /var/www/html/index.html'
   - 'systemctl start httpd'
