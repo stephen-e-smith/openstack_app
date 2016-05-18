@@ -6,6 +6,6 @@ packages:
   - wget
 
 runcmd:
-  - 'wget BUILD_URL/artifact/pkg/openstack_app.tar.gz'
+  - 'cd ~ && wget BUILD_URL/artifact/pkg/openstack_app.tar.gz'
   - 'cd /var/www/html/ && tar zvxf ~/openstack_app.tar.gz'
   - 'systemctl start httpd'
