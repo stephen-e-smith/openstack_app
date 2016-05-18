@@ -5,7 +5,7 @@ test :
 	cd tests && $(MAKE)
 
 clean :
-	cd pkg && rm -rf *
+	rm -rf pkg
 
 package :
 	mkdir -p pkg
