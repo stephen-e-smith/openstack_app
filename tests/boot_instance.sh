@@ -36,11 +36,13 @@ else
   FLOATING_IP=`/usr/bin/nova floating-ip-list | grep ' - ' | awk '{print $4}' | head -1`
 fi
 
+sed "s+BUILD_URL+$BUILD_URL+g" user_data.txt > user_data.txt.jenkins
+
 # Build our instance
 /usr/bin/nova boot --flavor ${FLAVOR} \
   --image ${IMAGE} \
   --key-name ${KEY_NAME} \
-  --user-data user_data.txt $BUILD_TAG
+  --user-data user_data.txt.jenkins $BUILD_TAG
 
 # Associate a free floating IP with the instance
 if [ $FLOATING_IP ]
