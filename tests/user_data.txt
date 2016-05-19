@@ -2,9 +2,9 @@
 
 packages:
   - epel-release
-  - python-django
 
 runcmd:
+  - 'yum -y install python-django'
   - 'cd ~ && wget BUILD_URL/artifact/pkg/openstack_app.tar.gz'
   - 'mkdir /usr/share/polls'
   - 'cd /usr/share/polls/ && tar zvxf ~/openstack_app.tar.gz'
