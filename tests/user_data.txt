@@ -2,6 +2,7 @@
 
 packages:
   - epel-release
+  - wget
 
 runcmd:
   - 'yum -y install python-django'
