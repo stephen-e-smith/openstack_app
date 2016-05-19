@@ -1,11 +1,11 @@
 #cloud-config
 
 packages:
-  - httpd
-  - php
-  - wget
+  - epel-release
+  - python-django
 
 runcmd:
   - 'cd ~ && wget BUILD_URL/artifact/pkg/openstack_app.tar.gz'
-  - 'cd /var/www/html/ && tar zvxf ~/openstack_app.tar.gz'
-  - 'systemctl start httpd'
+  - 'mkdir /usr/share/polls'
+  - 'cd /usr/share/polls/ && tar zvxf ~/openstack_app.tar.gz'
+  - 'cd /usr/share/polls && python manage.py runserver 0.0.0.0:80'

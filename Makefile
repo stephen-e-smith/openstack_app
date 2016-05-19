@@ -9,7 +9,7 @@ clean :
 
 package :
 	mkdir -p pkg
-	cd code && tar cpvzf ../pkg/openstack_app.tar.gz *.php
+	cd code && tar cpvzf ../pkg/openstack_app.tar.gz .
 
 deploy :
 	cd tests && sh boot_instance.sh
